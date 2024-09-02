@@ -21,7 +21,7 @@ export class EntityUniqueValidatorCustom implements ValidatorConstraintInterface
   }
 
   defaultMessage(args: ValidationArguments) {
-    return `${args.constraints[0].name} with ${args.constraints[1]} ${args.value} already exist`;
+    return `${args.constraints[0].name} with ${args.constraints[1]}: '${args.value}' already exists`;
   }
 }
 

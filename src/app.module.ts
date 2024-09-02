@@ -4,7 +4,9 @@ import { AppService } from './app.service';
 import { env } from 'process';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
-import { ThingEntity } from './TypeORM/ThingEntity';
+import { ThingEntity } from './typeorm/thing.entity';
+import { ThingModule } from './admin/thing/Thing.module';
+import { ClassValidatorExtendModule } from './custom/validator/classvalidatorextend.module';
 
 @Module({
   imports: [
@@ -22,9 +24,9 @@ import { ThingEntity } from './TypeORM/ThingEntity';
       synchronize: true,
     }),
     // modules
+    ThingModule,
 
-
-
+    ClassValidatorExtendModule,//custom validators
   ],
   controllers: [AppController],
   providers: [AppService],
